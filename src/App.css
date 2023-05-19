@@ -60,3 +60,11 @@
 .btn:hover {
   background-color: rgb(218, 13, 50);
 }
+
+.text-danger{
+  color: rgb(255, 56, 92);
+}
+
+.fs-xs{
+  font-size: 12px;
+}
