@@ -21,7 +21,7 @@ export default function TextField({
     formState: { errors },
   } = useFormContext(); // 透過useFormContext 獲取父層方法及資料
 
-  //雖然我們可以獲取錯誤資訊，但錯誤資訊為整個form的錯誤需要再進行邏輯處理
+  // 雖然我們可以獲取錯誤資訊，但錯誤資訊為整個form的錯誤需要再進行邏輯處理
   const inputError = findInputError(errors, name);
   // 並且根據錯誤訊息的有無 判斷該組件是否要顯示錯誤訊息
   const isInvalid = isFormInvalid(inputError);

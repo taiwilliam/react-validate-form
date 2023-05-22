@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
+
 import TextField from "./components/TextField";
+import name_validation from "./components/utils/name_validation";
+import phone_validation from "./components/utils/phone_validation";
+import email_validation from "./components/utils/email_validation";
 
 function App() {
   const methods = useForm();
   const [data, setData] = useState({});
+  const isLoading = false;
 
   const onSubmit = methods.handleSubmit((formData) => {
     setData(JSON.stringify(formData));
@@ -22,17 +27,19 @@ function App() {
             noValidate //禁用原生默認驗證行為
           >
             <TextField
-              label='姓名'
-              name='name'
-              id='name'
+              {...name_validation}
+              disabled={isLoading}
               className='mb-3'
-              placeholder='報上名來'
-              validation={{
-                required: {
-                  value: true,
-                  message: "嘿嘿嘿，快告訴我你的名子",
-                },
-              }}
+            />
+            <TextField
+              {...email_validation}
+              disabled={isLoading}
+              className='mb-3'
+            />
+            <TextField
+              {...phone_validation}
+              disabled={isLoading}
+              className='mb-3'
             />
 
             <button className='btn' onClick={onSubmit}>
